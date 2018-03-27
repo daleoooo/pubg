@@ -1,0 +1,67 @@
+{
+    "name": "@daleoooo/pubg",
+    "version": "0.0.0-beta",
+    "description": "Test! Test! Test!",
+    "main": "dist/pubg.esm.js",
+    "node": "dist/pubg.cjs.js",
+    "browser": "dist/pubg.umd.js",
+    "scripts": {
+        "clean": "rimraf dist/ && mkdir dist",
+        "test": "npm run lint && npm run build && BABEL_ENV=test ./node_modules/.bin/nyc --reporter=html ./node_modules/.bin/mocha --timeout=3000 --require babel-polyfill --require babel-core/register",
+        "lint": "./node_modules/.bin/eslint --fix lib test",
+        "build": "BABEL_ENV=production rollup -c",
+        "prepublishOnly": "npm run test",
+        "publish": "git commit -am \"published: \"$npm_package_version && git tag $npm_package_version && git push origin master && git push --tags"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:daleoooo/pubg.git"
+    },
+    "keywords": [
+        "TEST",
+        "TEST",
+        "TEST"
+    ],
+    "author": "daleoooo",
+    "license": "MIT",
+    "files": [
+        "package.json",
+        "README",
+        "LICENSE",
+        "lib/",
+        "dist/"
+    ],
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-core": "^6.26.0",
+        "babel-plugin-external-helpers": "^6.22.0",
+        "babel-plugin-transform-object-assign": "^6.8.0",
+        "babel-plugin-transform-runtime": "^6.23.0",
+        "babel-polyfill": "^6.26.0",
+        "babel-preset-env": "^1.6.0",
+        "babel-register": "^6.26.0",
+        "chai": "^4.1.2",
+        "del": "^3.0.0",
+        "eslint": "^4.19.1",
+        "eslint-config-airbnb-base": "^12.1.0",
+        "eslint-config-hfe": "^2.4.2",
+        "eslint-loader": "^1.9.0",
+        "eslint-plugin-import": "^2.9.0",
+        "glob": "^7.1.2",
+        "gulp": "^3.9.1",
+        "gulp-babel": "^6.1.2",
+        "istanbul": "^0.4.5",
+        "mocha": "^4.0.1",
+        "nyc": "^11.2.1",
+        "rollup": "^0.55.3",
+        "rollup-plugin-babel": "^3.0.3",
+        "rollup-plugin-commonjs": "8.3.0",
+        "rollup-plugin-node-resolve": "^3.3.0",
+        "rollup-plugin-replace": "^2.0.0",
+        "rollup-plugin-uglify": "^3.0.0",
+        "semantic-release": "^11.0.2"
+    },
+    "dependencies": {
+        "rxjs": "^5.5.7"
+    }
+}
